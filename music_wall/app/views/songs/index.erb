@@ -1,0 +1,9 @@
+<h1>Under construction!</h1>
+
+ 
+<% @songs.each do |song| %>
+<div class="song">
+<h3>Title: <%= song.title %> <small>by <%= song.author %></small></h3>
+<span>URL: <a href="http://<%= song.url %>"><%= song.url %></a></span>
+</div> 
+<% end %>
