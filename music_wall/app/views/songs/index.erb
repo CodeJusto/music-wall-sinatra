@@ -3,7 +3,9 @@
  
 <% @songs.each do |song| %>
 <div class="song">
-<h3>Title: <%= song.title %> <small>by <%= song.author %></small></h3>
+<h3>Song Title: <%= song.title %> <small>by <%= song.author %></small></h3>
 <span>URL: <a href="http://<%= song.url %>"><%= song.url %></a></span>
+<p>Created at: <%= song.created_at %></p>
+<p>Last Updated: <%= song.updated_at %></p>
 </div> 
 <% end %>
