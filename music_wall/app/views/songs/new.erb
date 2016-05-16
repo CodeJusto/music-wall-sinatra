@@ -1,29 +1,34 @@
-<% if @song && @song.errors.any? %>
-  <div>
-    <strong>Some issues with your song, please fix them:</strong>
-    <ul>
-      <% @song.errors.full_songs.each do |song| %>
-        <li><%= song %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+<div class="container">
+  <div class="row">
 
-<h1>Submit your song here!</h1>
-<form method='post' action='/songs'>
-  <div>
-    <label>Title:</label>
-    <input type="text" name="title" value="<%= @song && @song.title %>">
+    <div class="col-sm-6">
+      <form class="form-signin" method="post" action='/songs'>
+        <h2 class="form-signin-heading">Submit your song here</h2>
+        <label for="inputTitle" class="sr-only">Title</label>
+        <input type="text" name="title" class="form-control" placeholder="Song title" value="<%= @song && @song.title %>" required>
+        <label for="inputAuthor" class="sr-only">Author</label>
+        <input type="text" name="author" class="form-control" placeholder="Author" value="<%= @song && @song.author %>" required>
+        <label for="inputURL" class="sr-only">URL</label>
+        <input type="text" name="url" class="form-control" placeholder="URL" value="<%= @song && @song.url %>">
+        <div class="text-center">
+          <input class="input" type="submit" value="Submit">
+        </div>
+      </form>
+        <h3 class="text-center"><a href="/">Return home</a></h3>
+    </div>
+    <div class="col-sm-6">
+        <img class="img-submit" src="http://www.thatericalper.com/wp-content/uploads/2014/07/rick-astley.jpg">
+    </div>
+
+  <!--   <% if @song && @song.errors.any? %>
+      <div>
+        <strong>Some issues with your song, please fix them:</strong>
+        <ul>
+          <% @song.errors.full_songs.each do |song| %>
+            <li><%= song %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %> -->
   </div>
-<div>
-    <label>Author:</label>
-    <input type="text" name="author" value="<%= @song && @song.author %>">
-  </div>
-  <div>
-    <label>URL:</label>
-    <input type="text" name="url" value="<%= @song && @song.url %>">
-  </div>
-  <div>
-    <input type="submit" value="Submit">
-  </div>
-</form>
+</div>

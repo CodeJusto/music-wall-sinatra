@@ -1,11 +1,13 @@
-<h1>Under construction!</h1>
 
- 
-<% @songs.each do |song| %>
-<div class="song">
-<h3>Song Title: <%= song.title %> <small>by <%= song.author %></small></h3>
-<span>URL: <a href="http://<%= song.url %>"><%= song.url %></a></span>
-<p>Created at: <%= song.created_at %></p>
-<p>Last Updated: <%= song.updated_at %></p>
-</div> 
-<% end %>
+<div class='container'>
+  <h1 class="text-center">Listen to the songs of my people</h1>
+  <h3 class="text-center"><a href="/">Return home</a></h3>
+  <% @songs.each do |song| %>
+  <div class="song">
+  <h3>Song Title: <%= song.title %> <small>by <%= song.author %></small></h3>
+  <span>URL: <a href="http://<%= song.url %>"><%= song.url %></a></span>
+  <p>Created at: <%= song.created_at %></p>
+  <p>Last Updated: <%= song.updated_at %></p>
+  </div> 
+  <% end %>
+</div>
