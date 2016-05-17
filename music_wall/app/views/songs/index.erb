@@ -1,0 +1,33 @@
+
+<% if @upvote && @upvote.errors.any? %>
+  <div>
+    <strong>Some issues with your upvote, please fix them:</strong>
+    <ul>
+      <% @upvote.errors.full_messages.each do |upvote| %>
+        <li><%= upvote %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class='container'>
+  <h1 class="text-center">Listen to the songs of my people</h1>
+  <h3 class="text-center"><a href="/">Return home</a></h3>
+  <% @songs.each do |song| %>
+    <div class="song">
+    <h3>Song Title: <%= song.title %> <small>by <%= song.author %></small></h3>
+    <span>URL: <a href="http://<%= song.url %>"><%= song.url %></a></span><br>
+    <span>Current votes: <%= song.votes.count %>
+    <% unless session[:email].nil? %>
+      <p>
+        <form name="upvote" method="post" action="/upvote">
+          <input type="hidden" name="song_id" value="<%= song.id %>">
+          <button class="button btn-lg btn-primary">Upvote</button>
+        </form>
+      </p>
+    <% end %>
+    <p>Created at: <%= song.created_at %></p>
+    <p>Last Updated: <%= song.updated_at %></p>
+    </div> 
+  <% end %>
+</div>
