@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160516203722) do
+ActiveRecord::Schema.define(version: 20160517015633) do
 
   create_table "songs", force: :cascade do |t|
     t.integer  "user_id"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20160516203722) do
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "posted_by"
   end
 
   create_table "users", force: :cascade do |t|
@@ -27,6 +28,11 @@ ActiveRecord::Schema.define(version: 20160516203722) do
     t.string   "password"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "song_id"
   end
 
 end
